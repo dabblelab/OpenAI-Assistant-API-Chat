@@ -7,16 +7,16 @@ import { Analytics } from "@vercel/analytics/react";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Agent42",
+  title: "Archr",
   description:
-    "OpenAI Assistant",
-    metadataBase: 'https://mydomain.com'
+    "Archr.ai ",
+    metadataBase: 'https://archr.ai'
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className="flex h-full flex-col bg-zinc-50 dark:bg-black">
         {children}
         <Toaster />
       </body>

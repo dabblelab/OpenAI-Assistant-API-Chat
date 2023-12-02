@@ -4,7 +4,7 @@ import { SendIcon, LoadingCircle, DocumentIcon, XIcon, ImageIcon } from '../icon
 
 const InputForm = ({ input, setInput, handleFormSubmit, inputRef, formRef, disabled, chatStarted, isSending, isLoading, handleChatFilesUpload, chatFileDetails, removeChatFile }) => {
   return (
-    <div className="fixed bottom-0 flex w-full flex-col items-center space-y-3 bg-gradient-to-b from-transparent via-gray-100 to-gray-100 p-5 pb-3 sm:px-0">
+    <div className="mx-auto mt-20 mb-20 max-w-2xl lg:max-w-5xl">
       <div className="flex flex-col items-stretch w-full max-w-screen-md">
         <div className="flex flex-wrap items-center space-x-2 mb-2">
           {chatFileDetails.map((file) => (
@@ -61,7 +61,7 @@ const InputForm = ({ input, setInput, handleFormSubmit, inputRef, formRef, disab
               "absolute inset-y-0 left-3 my-auto flex h-8 w-8 items-center justify-center rounded-md transition-all",
               disabled || !chatStarted || isSending
                 ? "cursor-not-allowed bg-gray-300"
-                : "bg-blue-500 hover:bg-blue-600",
+                : "bg-black hover:bg-black-200",
             )}
           >
             <span className="text-white text-lg">+</span>

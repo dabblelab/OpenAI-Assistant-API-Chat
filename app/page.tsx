@@ -19,21 +19,21 @@ export default function Chat() {
     isSending, setIsSending,
     inputRef,
     formRef,
-    initialThreadMessage, 
+    initialThreadMessage,
     setInitialThreadMessage,
     setChatStarted,
     chatStarted: chatHasStarted,
     chatManager, setChatManager,
     assistantId,
     isMessageLoading, setIsMessageLoading,
-    progress, setProgress, 
+    progress, setProgress,
     isLoadingFirstMessage,
     setIsLoadingFirstMessage,
     chatUploadedFiles = [], setChatUploadedFiles,
     chatFileDetails, setChatFileDetails,
   } = useChatState();
 
-  
+
 
 
 
@@ -80,7 +80,7 @@ export default function Chat() {
       }
     }
   };
-  
+
   //This function takes an array of File objects (the files selected by the user) and uses the setFiles function to update the files state.
   const handleFilesChange = (selectedFiles: File[]) => setFiles(selectedFiles);
 
@@ -105,20 +105,30 @@ export default function Chat() {
   const removeChatFile = (fileName: string) => {
     const updatedFileDetails = chatFileDetails.filter((file) => file.name !== fileName);
     setChatFileDetails(updatedFileDetails);
-  
+
     const updatedUploadedFiles = chatUploadedFiles.filter((file) => file.name !== fileName);
     setChatUploadedFiles(updatedUploadedFiles);
   };
 
   return (
-    <main className="flex flex-col items-center justify-between pb-40 bg-space-grey-light">
-      <LinkBar />
-      {chatHasStarted || assistantId || isLoadingFirstMessage  ? (
-        <MessageList chatMessages={chatMessages} statusMessage={statusMessage} isSending={isSending} progress={progress} isFirstMessage={isLoadingFirstMessage} fileDetails={chatFileDetails} />
-      ) : (
-        <WelcomeForm {...{assistantName, setAssistantName, assistantDescription, setAssistantDescription, assistantModel, setAssistantModel, files, handleFilesChange, startChatAssistant, isButtonDisabled, isStartLoading, statusMessage}} />
-      )}
-      <InputForm {...{input: inputmessage, setInput: setInputmessage, handleFormSubmit, inputRef, formRef, disabled: isButtonDisabled || !chatManager, chatStarted: chatMessages.length > 0, isSending, isLoading: isMessageLoading, handleChatFilesUpload, chatFileDetails, removeChatFile}} />
-    </main>
+    <>
+      <div className="fixed inset-0 flex justify-center sm:px-8">
+        <div className="flex w-full max-w-7xl lg:px-8">
+          <div className="w-full bg-white ring-1 ring-zinc-100 dark:bg-zinc-900 dark:ring-zinc-300/20" />
+        </div>
+      </div>
+      <div className="relative">
+        <main>
+          <LinkBar />
+          {chatHasStarted || assistantId || isLoadingFirstMessage ? (
+            <MessageList chatMessages={chatMessages} statusMessage={statusMessage} isSending={isSending} progress={progress} isFirstMessage={isLoadingFirstMessage} fileDetails={chatFileDetails} />
+          ) : (
+            <WelcomeForm {...{ assistantName, setAssistantName, assistantDescription, setAssistantDescription, assistantModel, setAssistantModel, files, handleFilesChange, startChatAssistant, isButtonDisabled, isStartLoading, statusMessage }} />
+          )}
+          <InputForm {...{ input: inputmessage, setInput: setInputmessage, handleFormSubmit, inputRef, formRef, disabled: isButtonDisabled || !chatManager, chatStarted: chatMessages.length > 0, isSending, isLoading: isMessageLoading, handleChatFilesUpload, chatFileDetails, removeChatFile }} />
+        </main>
+      </div>
+    </>
+
   );
 }

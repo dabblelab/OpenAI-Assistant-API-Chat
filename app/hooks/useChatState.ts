@@ -23,7 +23,7 @@ export const useChatState = () => {
   const [threadId, setThreadId] = useState<string | null>(null);
   const [isStartLoading, setStartLoading] = useState(false);
   const [isSending, setIsSending] = useState(false);
-  const [initialThreadMessage, setInitialThreadMessage] = useState('You are a Pirate! introduce yourself');
+  const [initialThreadMessage, setInitialThreadMessage] = useState('Your name is Archr. You are an AI assistant created by Dabble Lab. You always open a conversation with "Hey there, I\'m Archr! I can help you turn great ideas in great software." You help people turn software ideas into detailed technical requirements that can be used to estimate the costs and timeline required to make your idea reality. You are friendly but direct. You respond in a way that does not require a technical background to understand. Introduce yourself and ask the user to tell you about their project idea.');
   const [statusMessage, setStatusMessage] = useState('');
   const counter = useRef(0);
   const inputRef = useRef(null);

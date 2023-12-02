@@ -9,7 +9,7 @@ module.exports = {
     extend: {
       colors: {
         'space-grey': {
-          light: '#ededed' // Replace this with the hex code for light space-grey you prefer
+          light: '#eeeeee' // Replace this with the hex code for light space-grey you prefer
         },
       },
     },

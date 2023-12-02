@@ -10,15 +10,15 @@ const Message = ({ message, progress, isFirstMessage, fileDetails }) => {
   return (
     <div
       className={clsx(
-        "flex w-full items-center justify-center border-b border-gray-200 py-8",
-        message.role === "user" ? "bg-white" : "bg-gray-100"
+        "mx-auto mt-20 max-w-2xl lg:max-w-5xl",
+        message.role === "user" ? "bg-white" : "bg-white"
       )}
     >
       <div className="flex w-full max-w-screen-md items-start space-x-4 px-5 sm:px-0">
         <div
           className={clsx(
             "p-1.5 text-white",
-            message.role === "assistant" ? "bg-green-500" : "bg-black"
+            message.role === "assistant" ? "bg-black" : "bg-black"
           )}
         >
           {message.role === "user" ? <User width={20} /> : <Bot width={20} />}
